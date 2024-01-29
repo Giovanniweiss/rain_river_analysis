@@ -1,4 +1,4 @@
-import requests, sqlite3, re, tweepy
+import requests, sqlite3, re
 from bs4 import BeautifulSoup
 from urllib.parse import quote, urlparse, parse_qsl, urlencode, urlunparse
 
