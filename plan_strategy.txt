@@ -1,7 +1,7 @@
 So here's the plan for the project:
 
-1 - Get the data from the public defense website.
-2 - Save the data into a csv file.
+1 - Get the data from the public defense website. ok
+SCRAPPED 2 - Save the data into a csv file.
 3 - Process the data.
 3.1 - As a initial plan, it should check whether vital chokepoints of the city are flooded:
 3.1.1 - Ximbica.
@@ -10,6 +10,10 @@ So here's the plan for the project:
 3.1.4 - Subida da rua Tuiuti.
 4 - With the processed data, format a tweet.
 5 - Tweet into a bot account.
+
+1 - Get the data from the public defense website.
+2 - Process the data so I can store it.
+3 - Add the data to the database.
 
 Here's the methods that will be used:
 
