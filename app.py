@@ -100,8 +100,8 @@ key_set = {
     'temp_key'   : 'Temperature'
 }
 
-rain_data = (get_data(key_set))
-add_to_db(rain_data, key_set, database_file)
+#rain_data = (get_data(key_set))
+#add_to_db(rain_data, key_set, database_file)
 
 # After we have the data, it's time to work on checking if the bridge is passable.
 # Get the latest data entry from the database.
