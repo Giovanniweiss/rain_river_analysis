@@ -96,6 +96,9 @@ def get_today():
 def get_url_for_date(start_date=get_today(), end_date=get_today()):
     # Below is the url to the government website that displays the sensor data for a specific date.
     # If no input is given, it will be filled with the current date.
+    # By standard, the database is set up to work with 30 minute intervals. 
+    # If desired, intervalo can be adjusted between 5, 15, 30 or 60 in order to adjust intervals between readings.
+    # I highly suggest NOT mixing intervals in the same table.
     url_mod = f'''https://defesacivil.riodosul.sc.gov.br/index.php?r=externo%2Fmetragem-sensores
     &_tog1149016d=all
     &_pjax=%23kv-pjax-container-metragem-sensores

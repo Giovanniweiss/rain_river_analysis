@@ -14,14 +14,16 @@ Deeper data analysis was not the focus of this project. However, data collected 
 Contains functions used to access, scrape, store and process data from the govenment website.
 * **twitter_helper.py**  
 Contains functions that authenticate and post a tweet containing a message. They are useless without a file named API_access_tokens.txt  
-* **API_access_tokens.txt**
+* **API_access_tokens.txt**  
 This file is not included in the github copy of this project because I will not share my twitter API access codes. However, should you wish to use this project for something, you need to make this file yourself. Format it as especified in the twitter_helper.py  
-* **db_schema.sql**
+* **db_schema.sql**  
 This file contains the database schema, in case the database file is ever lost.
-* **rain_data.db**
+* **rain_data.db**  
 This is a sqlite3 database containing all the data the bot collects.
-* **populate_database.py**
+* **populate_database.py**  
 This is a separate script which can be used to collect historical data from the government website.
+* **main.py**  
+This is the main script file. Running this file will start a python program that will run the bot indefinitely, checking for new data every hour.
 
 ## Further Context
 The city of Rio do Sul has a remarkable location in the state of Santa Catarina, Brazil, as in the heart of the city, two rivers join and form the Rio Itajaí-Açu, a major river which flows more than 270km down the state until it reaches the atlantic ocean.  

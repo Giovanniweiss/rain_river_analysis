@@ -2,7 +2,7 @@ import data_tools
 
 # The website allows for access to data per 3 days only.
 database_file, key_set = data_tools.get_database_variables()
-test_set = data_tools.date_set_builder(2021)
+test_set = data_tools.date_set_builder(2020)
 step = 2
 i = 0
 
