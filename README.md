@@ -25,9 +25,28 @@ This is a separate script which can be used to collect historical data from the 
 * **main.py**  
 This is the main script file. Running this file will start a python program that will run the bot indefinitely, checking for new data every hour.
 
+
+## How to use
+To run the bot, you need to install all the required packages:
+* requests  
+* sqlite3  
+* datetime  
+* time  
+* tweepy  
+
+Then, you need to create a Twitter app and project, and register the API tokens into a text file named API_access_tokens.txt. It needs to be formatted as such:
+* access_token:value
+* access_token_secret:value
+* consumer_key:value
+* consumer_secret:value
+* bearer_token:value  
+
+Such as, when twitter_helper.py accesses it, it needs to extract a dict back that will fit the code correctly.  
+Finally, once this is set up, running the bot is as simple as executing main.py
+
 ## Further Context
 The city of Rio do Sul has a remarkable location in the state of Santa Catarina, Brazil, as in the heart of the city, two rivers join and form the Rio Itajaí-Açu, a major river which flows more than 270km down the state until it reaches the atlantic ocean.  
-This river was paramount to the settling of the land by european migrants in the 19th and 20th century, as it allowed for easy transportation of wood down to the coast.  
-The location of Rio do Sul, however, is also threatened by its landscape. When it rains, the water from the whole region of the Alto Vale do Itajaí, flows into the Itajaí-Açu. The river, in turn, is not wide enough to keep up with the downpour at times, and flooding occurs.  
+This river was paramount to the settling of the land by european migrants in the 19th and 20th century, as it allowed for easy access to fresh water and as well transportation of wood down to the coast.  
+The location of Rio do Sul, however, is also threatened by its landscape. When it rains, rainwater from the whole region of the Alto Vale do Itajaí flows into the Itajaí-Açu. The river, in turn, is not wide enough and does not have enough flow to keep up with the downpour at times, and flooding occurs.  
 As of February of 2024, the time of writing this file, the author of this project himself has lived through 10 separate floods, of varying intensities, after living for 3 years in this city. In November 2023, Rio do Sul faced its second worst flood since 1911 as the river rose 11 meters above its normal measument, in a matter of 12 hours. This was a major blow to the local economy, which, as of the time of writing this file, is still far from recovering.  
-The Ximbica bridge, the point of interest in this project, is a very small but very important, 10 meter long bridge that connects a major quarter to the highway and to the city center. However, it is also located in perhaps the lowest point of the city - so much so that localized heavy rain will cause it to flood in a matter of minutes, much to the inconvenience of everyone who uses it frequently - the author included - hence the point of this project.
+The Ximbica bridge, the point of interest in this project, is a very small but very important, 10 meter long bridge that connects a major quarter to the highway and to the city center. However, it is also located in perhaps the lowest point of the city - so much so that localized heavy rain will cause it to flood in a matter of minutes, much to the inconvenience of everyone who uses it frequently - the author included - hence the point of this project.  
