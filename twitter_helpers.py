@@ -15,3 +15,4 @@ def tweet(message):
     access_token=tokens['access_token'], access_token_secret=tokens['access_token_secret'])
     
     client.create_tweet(text = message)
+    print("Tweet was successful!")
