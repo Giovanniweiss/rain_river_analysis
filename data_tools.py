@@ -38,17 +38,21 @@ def add_to_db(data, key_set, database_file):
 
 def get_data(key_set, safe_url):
     # Get the data from the public defense website.
+    
+    # I found this idea online. It helped making the accesses more stable.
+    # It makes the code retry multiple times if connection fails, with increasing time between trials.
     retry_strategy = Retry(total=5, backoff_factor=2)
     adapter = HTTPAdapter(max_retries=retry_strategy)
     session = requests.Session()
     session.mount('https://', adapter)
 
-    # Extract the data from the website.
+    # Get the data.
     try:
         data = session.get(safe_url)
     except ConnectionError as ce:
         raise ce
     
+    # Extract the data from the website.
     data = BeautifulSoup(data.content, 'html.parser')
 
     # Now treat the data into a list of dictionaries.
@@ -74,6 +78,7 @@ def get_data(key_set, safe_url):
     return data_collected_reversed
 
 def get_latest_entry(database_file, key_set):
+    # Returns the last entry by order of time from the databse.
     sqliteConnection = sqlite3.connect(database_file)
     cursor = sqliteConnection.cursor()
     cursor.execute(f"SELECT * FROM entries ORDER BY {key_set['date_unix_key']} DESC LIMIT 1;")
@@ -128,6 +133,7 @@ def date_set_builder(year):
 
 def get_database_variables():
     # This function return the column names from the database, and the db file name.
+    # I found this useful because it makes modifying the code easier, if necessary.
     database_file = 'rain_data.db'
     key_set = {
     'date_unix_key' : 'Date_unix',
@@ -145,7 +151,8 @@ def build_message(entry):
     # Entry must be a list of values, and values must be ordered as especified in the code below.
     
     # These values come from experience.
-    ximbica_flood_level = 5.3  # Measure in meters.
+    ximbica_bridge_level = 4  # At this height, the bridge starts to flood. Measure in meters.
+    ximbica_flood_level = 5.3  # At this height, the bride is no longer traversable. Measure in meters.
     ximbica_flood_rain_rate = 20.0  # Measure in mm/h.
     
     # Get the respective values from the entry from the database.
@@ -154,8 +161,10 @@ def build_message(entry):
     rain_rate = entry[4]
     
     # Return a status value in order to choose the type of message to return.
-    if float(level) > ximbica_flood_level:
+    if float(level) >= ximbica_flood_level:
         status = 2
+    elif float(level) >= ximbica_bridge_level and float(level) <= ximbica_flood_level:
+        status = 3
     elif float(level) <= ximbica_flood_level and float(rain_rate) >= ximbica_flood_rain_rate:
         status = 1
     else:
@@ -177,5 +186,7 @@ def build_message(entry):
     if status == 2:
         message.append(f"Given current sensor data, Ximbica is likely flooded.")
         message.append(f"The bridge is almost certainly not be traversable.")
-        
+    if status == 3:
+        message.append(f"Given current sensor data, Ximbica may be flooded.")
+        message.append(f"The bridge may still be traversable however. Proceed at your own risk.")
     return '\n'.join(message)
