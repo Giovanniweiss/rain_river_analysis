@@ -1,0 +1,6 @@
+{
+    "python.globalModuleInstallation": false,
+    "python.autoComplete.extraPaths": [],
+    "python.analysis.fixAll": [],
+    "python.analysis.extraPaths": []
+}
