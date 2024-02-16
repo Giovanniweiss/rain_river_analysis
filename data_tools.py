@@ -151,9 +151,9 @@ def build_message(entry):
     # Entry must be a list of values, and values must be ordered as especified in the code below.
     
     # These values come from experience.
-    ximbica_bridge_level = 4  # At this height, the bridge starts to flood. Measure in meters.
-    ximbica_flood_level = 5.3  # At this height, the bride is no longer traversable. Measure in meters.
-    ximbica_flood_rain_rate = 20.0  # Measure in mm/h.
+    ximbica_bridge_level = 5  # At this height, the bridge starts to flood. Value in meters.
+    ximbica_flood_level = 5.5  # At this height, the bride is no longer traversable. Value in meters.
+    ximbica_flood_rain_rate = 20.0  # Value in mm/h.
     
     # Get the respective values from the entry from the database.
     timestamp = entry[2]

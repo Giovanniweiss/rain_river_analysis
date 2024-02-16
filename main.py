@@ -1,6 +1,6 @@
 import data_tools as dt
 import twitter_helpers as th
-import time, logging
+import time
 
 while True:
     try:
